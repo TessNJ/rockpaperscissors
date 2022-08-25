@@ -33,15 +33,15 @@ h1 {
   background-image: url(assets/hand_rock.png);
 }
 
-.player.rock {
+.rocks {
   background-image: url(assets/hand_rock.png);
 }
 
-.player.paper {
+.papers {
   background-image: url(assets/hand_paper.png);
 }
 
-.player.scissors {
+.scissorss {
   background-image: url(assets/hand_scissors.png);
 }
 
@@ -139,4 +139,17 @@ button.paper {
 
 button.scissors {
   background-image: url(assets/button_scissors.png);
+}
+
+#replay_button {
+  background-color: rgba(255, 208, 0, 0.577);
+  width: 20%;
+  height: 10%;
+  padding: 1vw;
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  border: 1px solid darkgray;
+  border-radius: 1vw;
+  color: white;
 }

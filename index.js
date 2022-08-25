@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", startGame);
 
 let playerChoice;
+let computerHand;
 
 function startGame() {
   console.log("hello");
@@ -36,10 +37,41 @@ function computerChoice() {
 
   console.log(playerChoice);
   if (playerChoice === "rock") {
-    console.log("here");
+    computerHand = "scissors";
+    console.log(computerHand);
+  } else if (playerChoice === "paper") {
+    computerHand = "rock";
+    console.log(computerHand);
+  } else if (playerChoice === "scissors") {
+    computerHand = "paper";
+    console.log(computerHand);
+  } else {
+    alert("Error");
   }
+  playAnimation();
 }
 //Play animation
+function playAnimation() {
+  document.querySelector("#player1").classList.add("shake");
+  document.querySelector("#player2").classList.add("shake");
+  document
+    .querySelector("#player1")
+    .addEventListener("animationend", changeHand);
+}
 //Shows Hands
+function changeHand() {
+  document.querySelector("#player1").style.backgroundImage =
+    "url(assets/hand_" + playerChoice + ".png)";
+  document.querySelector("#player2").style.backgroundImage =
+    "url(assets/hand_" + computerHand + ".png)";
+  endScreen();
+}
 //Win pop-up
+function endScreen() {
+  document.querySelector("#win").classList.remove("hidden");
+  document.querySelector("#replay").classList.remove("hidden");
+}
 //Reload button
+function restart() {
+  location.reload();
+}
