@@ -16,6 +16,7 @@ function startGame() {
 function playerRock() {
   playerChoice = "rock";
   // console.log(playerChoice);
+  document.querySelector("#buttons").classList.add(".disabled");
   computerChoice();
 }
 function playerPaper() {

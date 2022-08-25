@@ -127,6 +127,7 @@ h1 {
   width: 10vw;
   height: 10vw;
   transition: filter 0.8s;
+  cursor: pointer;
 }
 
 button.rock {
@@ -152,4 +153,5 @@ button.scissors {
   border: 1px solid darkgray;
   border-radius: 1vw;
   color: white;
+  cursor: pointer;
 }
