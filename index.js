@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", startGame);
 
 let playerChoice;
 let computerHand;
+let outcome;
 
 function startGame() {
-  console.log("hello");
+  // console.log("hello");
   document.querySelector(".rock").addEventListener("click", playerRock);
   document.querySelector(".paper").addEventListener("click", playerPaper);
   document.querySelector(".scissors").addEventListener("click", playerScissors);
@@ -14,20 +15,48 @@ function startGame() {
 
 function playerRock() {
   playerChoice = "rock";
-  console.log(playerChoice);
+  // console.log(playerChoice);
   computerChoice();
 }
 function playerPaper() {
   playerChoice = "paper";
-  console.log(playerChoice);
+  // console.log(playerChoice);
   computerChoice();
 }
 function playerScissors() {
   playerChoice = "scissors";
-  console.log(playerChoice);
+  // console.log(playerChoice);
   computerChoice();
 }
-//Player 2 chooses losing hand
+// //Player 2 chooses losing hand
+
+//Forced//
+
+// function computerChoice() {
+//   document.querySelector(".rock").removeEventListener("click", playerRock);
+//   document.querySelector(".paper").removeEventListener("click", playerPaper);
+//   document
+//     .querySelector(".scissors")
+//     .removeEventListener("click", playerScissors);
+
+//   console.log(playerChoice);
+//   if (playerChoice === "rock") {
+//     computerHand = "scissors";
+//     console.log(computerHand);
+//   } else if (playerChoice === "paper") {
+//     computerHand = "rock";
+//     console.log(computerHand);
+//   } else if (playerChoice === "scissors") {
+//     computerHand = "paper";
+//     console.log(computerHand);
+//   } else {
+//     alert("Error");
+//   }
+//   playAnimation();
+// }
+
+//Randomized//
+
 function computerChoice() {
   document.querySelector(".rock").removeEventListener("click", playerRock);
   document.querySelector(".paper").removeEventListener("click", playerPaper);
@@ -35,21 +64,14 @@ function computerChoice() {
     .querySelector(".scissors")
     .removeEventListener("click", playerScissors);
 
-  console.log(playerChoice);
-  if (playerChoice === "rock") {
-    computerHand = "scissors";
-    console.log(computerHand);
-  } else if (playerChoice === "paper") {
-    computerHand = "rock";
-    console.log(computerHand);
-  } else if (playerChoice === "scissors") {
-    computerHand = "paper";
-    console.log(computerHand);
-  } else {
-    alert("Error");
-  }
+  var computerOptions = ["rock", "paper", "scissors"];
+  var choice = computerOptions[(Math.random() * computerOptions.length) | 0];
+  // console.log(choice);
+  computerHand = choice;
+
   playAnimation();
 }
+
 //Play animation
 function playAnimation() {
   document.querySelector("#player1").classList.add("shake");
@@ -64,11 +86,44 @@ function changeHand() {
     "url(assets/hand_" + playerChoice + ".png)";
   document.querySelector("#player2").style.backgroundImage =
     "url(assets/hand_" + computerHand + ".png)";
+  // endScreen();
+  determineWinner();
+}
+
+//Determine Winner
+function determineWinner() {
+  if (playerChoice === computerHand) {
+    document.querySelector("#draw").classList.remove("hidden");
+    document.querySelector("#replay").classList.remove("hidden");
+  } else if (playerChoice === "paper" && computerHand === "rock") {
+    outcome = true;
+    // console.log("win?" + outcome);
+  } else if (playerChoice === "paper" && computerHand === "scissors") {
+    outcome = false;
+    // console.log("lose?" + outcome);
+  } else if (playerChoice === "rock" && computerHand === "scissors") {
+    outcome = true;
+    // console.log("win?" + outcome);
+  } else if (playerChoice === "rock" && computerHand === "paper") {
+    outcome = false;
+    // console.log("lose?" + outcome);
+  } else if (playerChoice === "scissors" && computerHand === "paper") {
+    outcome = true;
+    // console.log("win?" + outcome);
+  } else if (playerChoice === "scissors" && computerHand === "rock") {
+    outcome = false;
+    // console.log("lose?" + outcome);
+  }
   endScreen();
 }
+
 //Win pop-up
 function endScreen() {
-  document.querySelector("#win").classList.remove("hidden");
+  if (outcome === true) {
+    document.querySelector("#win").classList.remove("hidden");
+  } else if (outcome === false) {
+    document.querySelector("#lose").classList.remove("hidden");
+  }
   document.querySelector("#replay").classList.remove("hidden");
 }
 //Reload button

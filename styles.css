@@ -14,7 +14,7 @@ h1 {
   position: relative;
   overflow: hidden;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #player1 {
@@ -27,8 +27,8 @@ h1 {
 
 .player {
   transform: scale(var(--rot), 1);
-  width: 40vw;
-  height: 40vw;
+  width: 20vw;
+  height: 20vw;
   background-size: 100%;
   background-image: url(assets/hand_rock.png);
 }
@@ -97,7 +97,7 @@ h1 {
 #texts {
   position: absolute;
   width: 100%;
-  margin-top: 10vw;
+  margin-top: 5vw;
   pointer-events: none;
 }
 
@@ -147,7 +147,7 @@ button.scissors {
   height: 10%;
   padding: 1vw;
   position: absolute;
-  top: 100%;
+  top: 40%;
   left: 40%;
   border: 1px solid darkgray;
   border-radius: 1vw;
