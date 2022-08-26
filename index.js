@@ -104,13 +104,31 @@ function endScreen() {
   }
   document.querySelector("#replay").classList.remove("hidden");
 }
-//Reload button
-function restart() {
-  location.reload();
+
+//Replay button
+function replay() {
+  document.querySelector("#buttons").classList.remove("disabled");
+  document.querySelector("#replay").classList.add("hidden");
+  if (outcome === true) {
+    document.querySelector("#win").classList.add("hidden");
+  } else if (outcome === false) {
+    document.querySelector("#lose").classList.add("hidden");
+  }
+  document.querySelector("#player1").style.backgroundImage =
+    "url(assets/hand_rock.png)";
+  document.querySelector("#player2").style.backgroundImage =
+    "url(assets/hand_rock.png)";
+  document.querySelector("#player1").classList.remove("shake");
+  document.querySelector("#player2").classList.remove("shake");
+  startGame();
 }
 
-// //Player 2 chooses losing hand
+//Reload button
+// function reload() {
+//   location.reload();
+// }
 
+// //Player 2 chooses losing hand
 //Forced//
 
 // function computerChoice() {
