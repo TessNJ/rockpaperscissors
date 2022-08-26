@@ -1,4 +1,4 @@
-//Start/Load (Instructions)
+//Start/Load (Instructions) - Not included
 document.addEventListener("DOMContentLoaded", startGame);
 
 let playerChoice;
@@ -30,32 +30,6 @@ function playerScissors() {
   computerChoice();
 }
 // //Player 2 chooses losing hand
-
-//Forced//
-
-// function computerChoice() {
-//   document.querySelector(".rock").removeEventListener("click", playerRock);
-//   document.querySelector(".paper").removeEventListener("click", playerPaper);
-//   document
-//     .querySelector(".scissors")
-//     .removeEventListener("click", playerScissors);
-
-//   console.log(playerChoice);
-//   if (playerChoice === "rock") {
-//     computerHand = "scissors";
-//     console.log(computerHand);
-//   } else if (playerChoice === "paper") {
-//     computerHand = "rock";
-//     console.log(computerHand);
-//   } else if (playerChoice === "scissors") {
-//     computerHand = "paper";
-//     console.log(computerHand);
-//   } else {
-//     alert("Error");
-//   }
-//   playAnimation();
-// }
-
 //Randomized//
 
 function computerChoice() {
@@ -132,3 +106,30 @@ function endScreen() {
 function restart() {
   location.reload();
 }
+
+// //Player 2 chooses losing hand
+
+//Forced//
+
+// function computerChoice() {
+//   document.querySelector(".rock").removeEventListener("click", playerRock);
+//   document.querySelector(".paper").removeEventListener("click", playerPaper);
+//   document
+//     .querySelector(".scissors")
+//     .removeEventListener("click", playerScissors);
+
+//   console.log(playerChoice);
+//   if (playerChoice === "rock") {
+//     computerHand = "scissors";
+//     console.log(computerHand);
+//   } else if (playerChoice === "paper") {
+//     computerHand = "rock";
+//     console.log(computerHand);
+//   } else if (playerChoice === "scissors") {
+//     computerHand = "paper";
+//     console.log(computerHand);
+//   } else {
+//     alert("Error");
+//   }
+//   playAnimation();
+// }
