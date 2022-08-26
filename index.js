@@ -64,6 +64,7 @@ function computerChoice() {
   document
     .querySelector(".scissors")
     .removeEventListener("click", playerScissors);
+  document.querySelector("#buttons").classList.add("disabled");
 
   var computerOptions = ["rock", "paper", "scissors"];
   var choice = computerOptions[(Math.random() * computerOptions.length) | 0];
