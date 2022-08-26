@@ -89,6 +89,8 @@ function determineWinner() {
   } else if (playerChoice === "scissors" && computerHand === "rock") {
     outcome = false;
     // console.log("lose?" + outcome);
+  } else {
+    alert("Error, dont know how this happened");
   }
   endScreen();
 }
